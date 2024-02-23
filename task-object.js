@@ -10,8 +10,10 @@
 
 // Your code:
 const volumeOfBox = (obj) => {
-
+    return obj.width * obj.length * obj.height;
 };
+console.log(volumeOfBox({ width: 2, length: 5, height: 1 }));
+
   
 // 2 ----
 // Create a function that takes strings - firstname, lastname, age, and return object with firstname, lastname, age, yearOfBirth
@@ -20,9 +22,14 @@ const volumeOfBox = (obj) => {
 
 // Your code:
 const personObject = (firstname, lastname, age) => {
-
-
+    return {
+        firstname: firstname,
+        lastname: lastname,
+        age: age,
+        yearOfBirth: new Date().getFullYear() - age
+    };
 };
+console.log(personObject("Obi-wan", "Kenobi", "40"));
 
 // 3 ----
 // Create the function that takes an array with objects and returns the sum of people's budgets.
@@ -35,7 +42,7 @@ const personObject = (firstname, lastname, age) => {
 
 //Your code:
 const getBudgets = (persons) => {
-
+    return persons.reduce((total, person) => total + person.budget, 0);
 };
 
 // 4 ----
@@ -46,6 +53,8 @@ const getBudgets = (persons) => {
 
 // Your code:
 const sortVehiclesByPrice = (vehicles) => {
-  
-
+    return vehicles.sort((vehicle1, vehicle2) => vehicle2.price - vehicle1.price)
 };
+// Example
+const vehicles = [{name: "Executor Star Dreadnought", price: 999}, {name: "T-47 Airspeeder", price: 5}, {name: "AT-AT", price : 20}]
+console.log(sortVehiclesByPrice(vehicles));
